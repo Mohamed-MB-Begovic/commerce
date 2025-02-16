@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // import { Modal, Notification } from '@shadcn/ui';
 import { Button } from '@/components/ui/button';
 
-import {Input} from '@/components/ui/Input'
+import {Input} from "@/components/ui/Input"
 
 // import {Table} from '../../components/ui/Table'
 import {
