@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 // import { Modal, Notification } from '@shadcn/ui';
 import { Button } from '@/components/ui/button';
 
-import {Input} from '../../components/ui/Input'
+import {Input} from '@/components/ui/Input'
+
 // import {Table} from '../../components/ui/Table'
 import {
   Table,
@@ -13,9 +14,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../components/ui/Table"
+} from "@/components/ui/Table"
 
-import {Form} from '../../components/ui/form'
+import {Form} from '@/components/ui/form'
 import axios from 'axios';
 
 const Payments = () => {
