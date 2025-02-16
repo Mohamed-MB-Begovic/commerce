@@ -57,14 +57,14 @@ const Payments = () => {
   ]
   
   const [payments, setPayments] = useState(sampleData);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [currentPayment, setCurrentPayment] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetchPayments();
-  }, []);
+  // useEffect(() => {
+  //   fetchPayments();
+  // }, []);
 
   const fetchPayments = async () => {
     try {
