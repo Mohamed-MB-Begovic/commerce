@@ -5,15 +5,8 @@ import { PencilIcon  } from '@heroicons/react/outline';
 import axios from 'axios'
 import toast from 'react-hot-toast';
 // Sample data
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 const sampleOrders = [
   { 
     ID: 1, 
