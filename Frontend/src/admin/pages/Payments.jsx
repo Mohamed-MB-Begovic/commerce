@@ -7,15 +7,8 @@ import { Input } from '@/components/ui/input';
 
 
 // import {Table} from '../../components/ui/Table'
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 
 import {Form} from '@/components/ui/form'
 import axios from 'axios';
