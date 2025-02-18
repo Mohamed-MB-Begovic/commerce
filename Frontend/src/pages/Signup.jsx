@@ -26,7 +26,7 @@ export default function Signup() {
     e.preventDefault();
 
     if (confirmPassword !== formData.password) {
-      return alert("Please confirm your password.");
+      return toast.error("Please confirm your password.");
     }
     try {
       setIsLoading(true);

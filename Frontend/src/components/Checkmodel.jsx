@@ -25,16 +25,17 @@ import ThankYouMessage from '../pages/ThankYouMessage'
 
 export default function Checkmodel({setShowOrderCheck,data}) {
   // const {products}=useShopContext();
+  const {user}=useUser();
   // const [showThankMessage,setShowThankMessage]=useState(false)
   const { products, total } = useShopContext();
     // console.log(data)
     let result={...data}
     result.orderItems=products
+    result.email=user.email
     // console.log(result)
 
     const navigate=useNavigate();
     const [isLoading,setIsLoading]=useState(false)
-    const {user}=useUser();
     const {setOrder}=useOrder();
     const [code,setCode]=useState('')
     const [confirmOrder,setConfirmOrder]=useState(false)

@@ -4,16 +4,18 @@ import { useState, useEffect } from 'react';
 import { PencilIcon  } from '@heroicons/react/outline';
 import axios from 'axios'
 import toast from 'react-hot-toast';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 // Sample data
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../../components/ui/Table"
+// import {
+//   Table,
+//   TableBody,
+//   TableCaption,
+//   TableCell,
+//   TableHead,
+//   TableHeader,
+//   TableRow,
+// } from "../../components/ui/Table"
 const sampleOrders = [
   { 
     ID: 1, 

@@ -11,6 +11,7 @@ import { HomeIcon, CashIcon, ShoppingCartIcon, ClipboardListIcon, DocumentReport
 import Notification from '../icons/Notification';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import UserAvator from '@/components/UserAvator';
 
 // import { CreditCardIcon, CurrencyDollarIcon, ShoppingCartIcon, UserGroupIcon } from "@heroicons/react/outline";
 
@@ -21,6 +22,7 @@ const Home = () => {
     const [activeLink, setActiveLink] = useState(location.pathname);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
+    const [profile,setProfile]=useState(null)
     const navigate=useNavigate()
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -36,6 +38,7 @@ const Home = () => {
           // console.log('user is not admin')
             navigate('/')
         }
+        setProfile(user.image)
     },[user])
 
     return (
@@ -43,6 +46,7 @@ const Home = () => {
         <div className="flex h-screen bg-white text-black">
         {/* Sidebar */}
         <div className={`fixed inset-y-0 left-0 z-30 w-64  bg-gray-900 text-gray-200 transition-transform transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+      
             {/* <div className="flex flex-col items-center p-7">
                 <img src="../p-2.png" alt="Profile" className="rounded-full h-[15vh] w-[15vh] mb-2" />
                 <h2 className="text-lg font-bold">{user?.username}</h2>
@@ -244,13 +248,14 @@ const Home = () => {
               )}
             </div>
             <div className="flex items-center space-x-2">
-              <img
-                src="../p-2.png" // Replace with real profile image
-                alt="Profile"
-                className="w-10 h-10 rounded-full"
-              />
+                {
+               profile ?(
+               <img src={user?.image} alt="profile" className="w-10 h-10  rounded-full" loading="lazy"/>
+              ):
+            <UserAvator username={user?.username} size={28}/>
+               }
               <div>
-                <p className="text-sm font-bold">MB</p>
+                <p className="text-sm font-bold">{user?.username}</p>
                 <p className="text-xs text-gray-500">Founder</p>
               </div>
             </div>

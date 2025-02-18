@@ -40,16 +40,18 @@ export const loginUser=async(req,res)=>{
     try {
         const {email,password}=req.body
    
-        const userExists=await Users.findOne({email:email})
-        if(!userExists)return res.status(404).send('Invalid Email or Password')
-        
+        const userExists=await Users.findOne({email:email}).select("+password")
+        if(!userExists)return res.status(404).send('Invalid Email')
+        const checkPass=await userExists.password===password
+      // console.log(userExists)
+        if(!checkPass)return res.status(404).send('Invalid Password')
             // const newUser=new Users({
             //     email:email,
             //     username:username,
             //     password:password
             // })
             const expiresIn=7*24*60*60
-            const token=jwt.sign({_id:userExists.id},JWT_SECRET,{
+            const token=jwt.sign({_id:userExists._id},JWT_SECRET,{
                 expiresIn
             })
 

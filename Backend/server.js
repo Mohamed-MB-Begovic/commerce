@@ -8,6 +8,7 @@ import cors from 'cors'
 import { DeleteProduct, getProducts } from './controllers/Products.js';
 import Products from './Routes/products.js';
 import OrderRouter from './Routes/OrderRouter.js';
+import PaymentRouter from './Routes/PaymentRouter.js';
 import dotenv from 'dotenv'
 const app=express();
  dotenv.config();
@@ -17,6 +18,7 @@ app.use(CookieParser())
 // user routes
 app.use('/api/users',UserRouter)
 app.use('/api/products',Products)
+app.use('/api/payments',PaymentRouter)
 app.use('/api/orders',OrderRouter)
 
 

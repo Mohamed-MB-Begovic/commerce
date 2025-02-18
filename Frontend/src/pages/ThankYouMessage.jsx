@@ -83,10 +83,13 @@ const navigate=useNavigate()
         <div className="mt-8 flex justify-end">
             <Button
               // onClick={() => window.history.back()}
-              onClick={() => navigate('/')}
+              onClick={() =>{ 
+                navigate('/')
+                 window.location.reload();
+              }}
               className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold transition-colors"
             >
-              ← Back to Orders
+              ← Back to Home
             </Button>
           </div>
       </div>

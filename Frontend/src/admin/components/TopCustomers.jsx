@@ -1,4 +1,6 @@
-export default function TopCustomers(){
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+export default function TopCustomers({customers}){
     const members = [
         {
             name: "Lindsay Walton",
@@ -55,49 +57,52 @@ export default function TopCustomers(){
             image: "https://placehold.co/40x40?text=FM"
         }
     ];
-
+console.log(customers)
     return (
-        <div className="container mx-auto p-4">
-                    <div className="overflow-x-auto">
-                        <div>
-                            <h2 className="font-bold my-4">Top Customers</h2>
-                        </div>
-                        <table className="min-w-full bg-white">
-                            <thead>
-                                <tr>
-                                    <th className="py-2 px-4 border-b text-left">Name</th>
-                                    <th className="py-2 px-4 border-b text-left">Title</th>
-                                    <th className="py-2 px-4 border-b text-left">Status</th>
-                                    <th className="py-2 px-4 border-b text-left">Role</th>
-                                    <th className="py-2 px-4 border-b"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {members.map((member, index) => (
-                                    <tr key={index}>
-                                        <td className="py-2 px-4 border-b flex items-center">
-                                            <img src={member.image} alt={`${member.name}'s profile`} className="w-10 h-10 rounded-full mr-4" />
-                                            <div>
-                                                <div className="text-sm font-medium text-gray-900">{member.name}</div>
-                                                <div className="text-sm text-gray-500">{member.email}</div>
-                                            </div>
-                                        </td>
-                                        <td className="py-2 px-4 border-b">
-                                            <div className="text-sm text-gray-900">{member.title}</div>
-                                            <div className="text-sm text-gray-500">{member.department}</div>
-                                        </td>
-                                        <td className="py-2 px-4 border-b">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {member.status}
-                                            </span>
-                                        </td>
-                                        <td className="py-2 px-4 border-b text-sm text-gray-900">{member.role}</td>
-                                        <td className="py-2 px-4 border-b text-sm text-blue-500 cursor-pointer">Edit</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <h2>hellow </h2>
+        // <div className="container mx-auto p-4">
+        //             <div className="overflow-x-auto">
+        //                 <div>
+        //                     <h2 className="font-bold my-4">Top Customers</h2>
+        //                 </div>
+        //                 <table className="min-w-full bg-white">
+        //                     {/* <thead>
+        //                         <tr>
+        //                             <th className="py-2 px-4 border-b text-left">Name</th>
+        //                             <th className="py-2 px-4 border-b text-left">Title</th>
+        //                             <th className="py-2 px-4 border-b text-left">Status</th>
+        //                             <th className="py-2 px-4 border-b text-left">Role</th>
+        //                             <th className="py-2 px-4 border-b"></th>
+        //                         </tr>
+        //                     </thead> */}
+        //                     <tbody>
+        //                         {customers.map((customer, index) => (
+        //                             <tr key={index}>
+        //                                 <td className="py-2 px-4 border-b flex items-center">
+        //                                     <img src={customer.image} alt={`${customer.firstName}'s profile`} className="w-10 h-10 rounded-full mr-4" />
+        //                                     <div>
+        //                                         <div className="text-sm font-medium text-gray-900">{customer.firstName}</div>
+        //                                         <div className="text-sm text-gray-500">{customer.email}</div>
+        //                                     </div>
+        //                                 </td>
+        //                                 <td className="py-2 px-4 border-b flex items-center">
+        //                                     {customer.subtotal}
+        //                                 </td>
+        //                                 {/* <td className="py-2 px-4 border-b">
+        //                                     <div className="text-sm text-gray-900">{customer.title}</div>
+        //                                     <div className="text-sm text-gray-500">{customer.department}</div>
+        //                                 </td> */}
+        //                                 <td className="py-2 px-4 border-b">
+        //                                     <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+        //                                         {customer.status}
+        //                                     </span>
+        //                                 </td>
+        //                                 <td className="py-2 px-4 border-b text-sm text-blue-500 cursor-pointer">Edit</td>
+        //                             </tr>
+        //                         ))}
+        //                     </tbody>
+        //                 </table>
+        //             </div>
+        //         </div>
     )
 }

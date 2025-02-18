@@ -1,21 +1,25 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 // import { Modal, Notification } from '@shadcn/ui';
-import {Button} from '../../components/ui/Button'
-import {Input} from '../../components/ui/Input'
-// import {Table} from '../../components/ui/Table'
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../../components/ui/Table"
+// import {Button} from '../../components/ui/Button'
+// import {Input} from '@/components/ui/Input'
+// import {Table} from '@/components/ui/Table'
+// import {
+//   Table,
+//   TableBody,
+//   TableCaption,
+//   TableCell,
+//   TableHead,
+//   TableHeader,
+//   TableRow,
+// } from "@/components/ui/Table"
 
 import {Form} from '../../components/ui/form'
 import axios from 'axios';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import toast from 'react-hot-toast';
 
 const Payments = () => {
   const sampleData=[
@@ -57,7 +61,7 @@ const Payments = () => {
   ]
   
   const [payments, setPayments] = useState(sampleData);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [currentPayment, setCurrentPayment] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -68,10 +72,12 @@ const Payments = () => {
 
   const fetchPayments = async () => {
     try {
-      const response = await axios.get('/api/payments'); // Replace with your API endpoint
-      setPayments(response.data);
+      setLoading(true)
+      const {data} = await axios.get('/api/payments'); // Replace with your API endpoint
+      setPayments(data);
+      // console.log(data)
     } catch (error) {
-      Notification.error('Failed to fetch payments.'+error);
+      toast.error('Failed to fetch payments');
     } finally {
       setLoading(false);
     }
@@ -123,10 +129,10 @@ const Payments = () => {
     }
   };
 
-  const filteredPayments = payments.filter((payment) =>
-    payment.customerName.toLowerCase().includes(searchTerm.toLowerCase())
+  const  filteredPayments =  payments?.filter((payment) =>
+    payment?.firstName?.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+// console.log(filteredPayments)
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Admin Payment Management</h1>
@@ -154,13 +160,15 @@ const Payments = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredPayments.map((payment) => (
+            {filteredPayments?.map((payment) => (
               <TableRow key={payment.id}>
-                <TableCell>{payment.id}</TableCell>
-                <TableCell>{payment.customerName}</TableCell>
-                <TableCell>${payment.amount}</TableCell>
-                <TableCell>{payment.status}</TableCell>
-                <TableCell>{new Date(payment.date).toLocaleDateString()}</TableCell>
+                <TableCell>{payment.ID}</TableCell>
+                <TableCell>{`${payment.firstName} ${payment.lastName}`}</TableCell>
+               <TableCell className="py-2 px-4 border-b">{payment.subtotal}</TableCell>
+                <TableCell>
+               <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">paid</span>
+               </TableCell>
+                <TableCell>{new Date(payment.createdAt).toLocaleDateString()}</TableCell>
                 <TableCell>
                   <Button variant="outline" onClick={() => handleEdit(payment)}>
                     Edit

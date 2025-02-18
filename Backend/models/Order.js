@@ -63,6 +63,9 @@ const checkoutSchema = new Schema(
       type:Schema.Types.ObjectId,
       ref:"Users"
     },
+    email:{
+      type:String
+    },
     orderItems: [
       {
         productId: {
