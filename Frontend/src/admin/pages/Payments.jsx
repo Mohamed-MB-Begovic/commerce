@@ -62,9 +62,9 @@ const Payments = () => {
   const [currentPayment, setCurrentPayment] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // useEffect(() => {
-  //   fetchPayments();
-  // }, []);
+  useEffect(() => {
+    fetchPayments();
+  }, []);
 
   const fetchPayments = async () => {
     try {
