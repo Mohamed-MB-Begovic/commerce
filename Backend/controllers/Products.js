@@ -113,7 +113,8 @@ try {
 export const getWomens = async(req,res)=>{
   // console.log(req.body)
 try {
-  const data= await Product.find({category: 'Women'})
+  const data= await Product.find({subCategory:{$in :'women'}})
+
   res.status(201).send(data)
   // console.log(data)
 } catch (error) {
