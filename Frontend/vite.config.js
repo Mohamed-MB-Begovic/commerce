@@ -5,7 +5,7 @@ import path from "path"
 export default defineConfig({
   plugins: [react()],
   server:{
-    "proxy":{"/api":"http://localhost:9000"}
+    "proxy":{"/api":"https://commerce-r7xq.onrender.com"}
   },
   resolve: {
     alias: {

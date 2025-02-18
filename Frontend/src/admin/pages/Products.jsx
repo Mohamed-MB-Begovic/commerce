@@ -2,21 +2,11 @@
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useState } from "react";
-// import {
-//   Card,
-//   CardContent,
-//   CardHeader,
-//   CardTitle,
-// } from "../../components/ui/card";
-// import { Button } from "../../components/ui/button";
-// import { Input } from "../../components/ui/input";
-// import { Textarea } from "../../components/ui/Textarea";
-import { Checkbox } from "../../components/ui/checkbox";
-import { Select, SelectItem, SelectTrigger, SelectContent } from "../../components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+// import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
 
 export default function Products() {
   const initialData = {

@@ -1,24 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 // import { Modal, Notification } from '@shadcn/ui';
-// import {Button} from '../../components/ui/Button'
-// import {Input} from '@/components/ui/Input'
-// import {Table} from '@/components/ui/Table'
-// import {
-//   Table,
-//   TableBody,
-//   TableCaption,
-//   TableCell,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "@/components/ui/Table"
-
-import {Form} from '../../components/ui/form'
-import axios from 'axios';
 import { Button } from '@/components/ui/button';
+
 import { Input } from '@/components/ui/input';
+
+
+// import {Table} from '../../components/ui/Table'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
+
+import {Form} from '@/components/ui/form'
+import axios from 'axios';
+// import { Button } from '@/components/ui/button';
+// import { Input } from '@/components/ui/input';
+// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import toast from 'react-hot-toast';
 
 const Payments = () => {
@@ -66,9 +62,9 @@ const Payments = () => {
   const [currentPayment, setCurrentPayment] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetchPayments();
-  }, []);
+  // useEffect(() => {
+  //   fetchPayments();
+  // }, []);
 
   const fetchPayments = async () => {
     try {
